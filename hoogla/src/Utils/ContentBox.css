@@ -1,0 +1,23 @@
+.content_box{
+    margin-top:10px;
+    padding:5px;
+}
+
+.content_box h1{
+    color: white;
+    font-size:20px;
+    padding:10px;
+    margin:0;
+}
+
+.box_title{
+    background-color:#00b894;
+}
+
+.box_content{
+    background-color: #55E6C1;
+    color:white;
+    padding:10px;
+    font-weight:500;
+
+}
