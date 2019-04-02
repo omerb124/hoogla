@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 import './ContentBox.css';
 
 class ContentBox extends Component {
@@ -20,8 +21,8 @@ class ContentBox extends Component {
         return (
             <div className="content_box">
                 <Row>
-                    <Col md={3}></Col>
-                    <Col md={6}>
+                    <Col md={2}></Col>
+                    <Col md={8}>
                         <Row>
                             <Col md={12}>
                                 <div className="box_title">
@@ -37,7 +38,7 @@ class ContentBox extends Component {
                             </Col>
                         </Row>
                     </Col>
-                    <Col md={3}></Col>
+                    <Col md={2}></Col>
                 </Row>
             </div>
         )

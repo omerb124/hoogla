@@ -6,50 +6,51 @@ import Table from 'react-bootstrap/Table';
 import './PersonsTable.css';
 import PersonRow from './PersonRow.js';
 
-class PersonsTable extends Component{
+class PersonsTable extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.persons = props.persons;
 
         this.generateList = this.generateList.bind(this);
     }
 
     generateList = () => {
         let list = [];
-        for(let i = 0; i < this.persons.length; i++){
+        for (let i = 0; i < this.props.persons.length; i++) {
             list.push(
-                <PersonRow 
-                    name={this.persons[i].name}
-                    type={this.persons[i].type}
+                <PersonRow
+                    addIlutz={this.props.addIlutz}
+                    id={this.props.persons[i].uid}
+                    key={i}
+                    name={this.props.persons[i].name}
+                    type={this.props.persons[i].type}
                 />
             );
         }
-        console.log(list);
 
         return list;
     };
 
 
     render = () => {
-        console.log("bbb");
         let list = this.generateList();
 
-        return(
-            <Table striped bordered hover id="persons_table" height="300px">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>שם מלא</th>
-                        <th>מפלג</th>
-                        <th>&nbsp;</th>
-                        <th>&nbsp;</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {list}
-                </tbody>
-            </Table>
+        return (
+            <div id="persons_table_container">
+                <Table striped bordered hover id="persons_table">
+                    <thead>
+                        <tr>
+                            <th>שם מלא</th>
+                            <th>מפלג</th>
+                            <td width="20%">אילוצים</td>
+                            <th width="20%">&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {list}
+                    </tbody>
+                </Table>
+            </div>
         )
     };
 }

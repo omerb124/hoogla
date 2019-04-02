@@ -12,10 +12,8 @@ import './Header.css';
 class Header extends Component{
     
     render() {
-
-        let d = new Date().toLocaleTimeString();
         return(
-            <Container fluid d={d}>
+            <Container fluid id="header">
                 <Row>
                     <Col md={12} className="p-0">
                         <div id="menu">

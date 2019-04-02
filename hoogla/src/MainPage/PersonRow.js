@@ -3,33 +3,40 @@ import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import InputGroup from 'react-bootstrap/InputGroup';
+import FormControl from 'react-bootstrap/FormControl';
 
-class PersonRow extends Component{
+class PersonRow extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
-        
-        // ID
-        this.personId = props.id || null;
 
         // אילוצים
-        this.problems = props.problems || [];
+        this.state = {
+            problems: []
+        };
 
-        // Full name
-        this.name = props.name || "אין שם";
-
-        // @var {Boolean} - HaHarcha is true/ cyber is false
-        this.type = props.type || true;
     }
+
+    
 
     render = () => {
         return (
-           <tr>
-               <td>{this.name}</td>
-               <td>{this.type ? "הערכה" : "סייבר"}</td>
-               <td><Button variant="outline-success" id={`iluzim_${this.personId}`}>אילוצים</Button></td>
-               <td><Button variant="outline-danger" id={`delete_${this.personId}`}>מחק</Button></td> 
-           </tr>
+            <tr>
+                <td>{this.props.name}</td>
+                <td>{this.props.type}</td>
+                <td>
+                    <InputGroup>
+
+                        <FormControl placeholder="בחר תאריך" aria-describedby="basic-addon1" type="date" id={`new_ilutz_${this.props.id}`} width="70%" />
+                        <InputGroup.Prepend>
+                            <Button variant="primary" onClick={() => { this.props.addIlutz(this.props.id); }}>הוסף</Button>
+                        </InputGroup.Prepend>
+                    </InputGroup>
+                </td>
+                <td><Button variant="outline-success" id={`iluzim_${this.props.id}`}>אילוצים</Button>
+                    <Button variant="outline-danger" id={`delete_${this.props.id}`}>מחק</Button></td>
+            </tr>
         )
     };
 }
